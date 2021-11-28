@@ -6,14 +6,14 @@ if(process.env.NODE_ENV !== 'production'){
 	app.use(morgan('dev'))
 }
 //database connection
-require('./database')
+require('./src/database')
 //settings
 app.set('port',3000)
 //middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-app.use(require('./routes/user.routes'))
-app.use(require('./routes/sales.routes'))
+app.use(require('./src/routes/user.routes'))
+app.use(require('./src/routes/sales.routes'))
 //server
 app.listen(app.get('port'),()=>{
 	console.log('app in port',app.get('port'))
